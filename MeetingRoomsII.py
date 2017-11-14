@@ -1,5 +1,9 @@
+"""
+Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...],
+find the minimum number of meeting rooms required.
+"""
 from heapq import heapreplace, heappush
-class meeting():
+class meeting:
     def __init__(self, start, end):
         self.start = start
         self.end = end
@@ -18,6 +22,7 @@ def meetingRoomII(meetings):
             heappush(heap, meeting.end)
     return len(heap)
 
+# Testing
 a = meeting(1,3)
 b = meeting(3,4)
 c = meeting(4,7)
