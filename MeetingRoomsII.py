@@ -16,7 +16,8 @@ def meetingRoomII(meetings):
     meetings.sort(key = lambda x: x.start)
     heap = []
     for meeting in meetings:
-        if heap and meeting.start >= heap[0]:
+        # heap maintains the smallest meeting ending time
+        if heap and meeting.start >= heap[0]:  
             heapreplace(heap, meeting.end)
         else:
             heappush(heap, meeting.end)
@@ -25,6 +26,6 @@ def meetingRoomII(meetings):
 # Testing
 a = meeting(1,3)
 b = meeting(3,4)
-c = meeting(4,7)
+c = meeting(2,7)
 meetings = [a,b,c]
-print (meetingRoomII(meetings))
+print ("The number of meeting rooms required is: %d" % meetingRoomII(meetings))
