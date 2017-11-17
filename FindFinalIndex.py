@@ -11,22 +11,24 @@ def findFinalIndex(nums, index, K):
 
     while K > 0:
         K-=1
-        if nums[index] == pivot:
+        if index == pivot:
+            K += 1
             break
-        if nums[index] in seen:
+        if index in seen:
             if pivot == None:
                 pivot = index
             cycle.append(index)
 
-        seen.add(nums[index])
+        seen.add(index)
         index = nums[index]
     if K == 0:      # no cycle found
         return index
-    print ("The number of steps left is %d" %K)
+    print ("Cycle found: ", cycle)
+    print ("The number of steps left is %d" % K)
     return cycle[K % len(cycle)]
 
 
 nums = [1,3,0,1,4,2]
-index = 2
-K = 600000
+index = 1
+K = 5000000
 print (findFinalIndex(nums, index, K))
